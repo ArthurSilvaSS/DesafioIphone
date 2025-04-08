@@ -1,3 +1,4 @@
+import AparelhoTelefonico.Telefone;
 import NavegadorDeInternet.NavegadorDeInternet;
 import ReprodutorMusical.ReprodutorMusical;
 
@@ -76,6 +77,40 @@ public class Iphone {
                             case 3 -> navegadorDeInternet.voltarPagina();
                         }
                     }while (opcaoDoNavegador != 0);
+                }
+                case 3: {
+                    Telefone telefone = new Telefone();
+                    System.out.println("Bem vindo ao telefone celular");
+                    System.out.println("Escolha uma das opcoes a ser executada");
+
+                    int opcaoDoCelular;
+                    int numeroSalvo = -1;
+                    do {
+                        System.out.println("[1] - fazer ligacao");
+                        System.out.println("[2] - mandar menssagem");
+                        System.out.println("[3] - ver agennda de contatos");
+
+                        while (!scanner.hasNext()){
+                            System.out.println("Digite um valor valido");
+                            scanner.next();
+                        }
+                        opcaoDoCelular = scanner.nextInt();
+
+
+                        switch (opcaoDoCelular){
+                            case 1 -> numeroSalvo = telefone.ligar();
+                            case 2 -> {
+                                if (numeroSalvo == -1){
+                                    System.out.println("faca uma ligacao para poder mandar um sms");
+                                    numeroSalvo = telefone.ligar();
+                                }
+                                telefone.mandarSms(numeroSalvo);
+
+                            }
+                            case 3 -> telefone.verAgenda();
+                        }
+
+                    }while (opcaoDoCelular != 0);
                 }
             }
 
