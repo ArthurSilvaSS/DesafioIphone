@@ -1,3 +1,4 @@
+import NavegadorDeInternet.NavegadorDeInternet;
 import ReprodutorMusical.ReprodutorMusical;
 
 import java.util.Scanner;
@@ -52,6 +53,29 @@ public class Iphone {
                         }
                     }while (opcaoDoReprodutorMusical != 0);
 
+                }
+                case 2: {
+                    NavegadorDeInternet navegadorDeInternet = new NavegadorDeInternet();
+                    System.out.println("Bem - vindo ao navegador de internet");
+                    System.out.println("Escolha uma das opcoes a ser executada");
+
+                    int opcaoDoNavegador;
+                    do {
+                        System.out.println("[1] - Fazer pesquisa na internet");
+                        System.out.println("[2] - Acessar pagina");
+                        System.out.println("[3] - Voltar pagina ");
+
+                        while (!scanner.hasNext()){
+                            System.out.println("Digite um valor valido");
+                            scanner.next();
+                        }
+                        opcaoDoNavegador = scanner.nextInt();
+                        switch (opcaoDoNavegador){
+                            case 1 -> navegadorDeInternet.fazerBusca();
+                            case 2 -> navegadorDeInternet.acessarPagina();
+                            case 3 -> navegadorDeInternet.voltarPagina();
+                        }
+                    }while (opcaoDoNavegador != 0);
                 }
             }
 
